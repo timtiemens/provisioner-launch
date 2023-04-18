@@ -13,7 +13,22 @@ The goals:
 3.  Have easy "per-project" configurations
 
 
-user-data contents - simple
+
+user-data contents - cloud-init, working, 
+ * puts it in /provisioner-launch  and in /out.userdata.txt
+ * owned by root
+
+```
+#cloud-config
+runcmd:
+ - [ git, clone, 'https://github.com/timtiemens/provisioner-launch.git' ]
+ - [ bash, 'provisioner-launch/src/sample.sh' ]
+```
+
+Other notes:
+
+
+user-data contents - simple, did not work
 
 ```
 #!/bin/bash
@@ -22,8 +37,6 @@ git clone https://github.com/timtiemens/provisioner-launch.git
 cd provisioner-launch
 bash src/sample.sh
 ```
-
-user-data contents - cloud-init :
 
 ```
 #cloud-config
