@@ -7,9 +7,7 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_DIR=$SCRIPT_DIR/../..
 
-SCRIPT_GET_NORMAL_USER=$SCRIPT_DIR/get-normal-user.sh)
-
-NORMAL_USER=$(bash $SCRIPT_GET_USER)
+NORMAL_USER=$(bash SCRIPT_DIR/get-normal-user.sh)
 
 TARGET_DIR=$PROJECT_DIR
 #chown -R $(id -u):$(id -g) $TARGET_DIR
