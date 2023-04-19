@@ -2,5 +2,6 @@
 packages:
  - git
 runcmd:
- - [ git, clone, 'https://github.com/timtiemens/provisioner-launch.git' ]
- - [ bash, 'provisioner-launch/src/sample.sh' ]
+ - [ mkdir, /run/provisioner ]
+ - [ git, clone, 'https://github.com/timtiemens/provisioner-launch.git', '/run/provisioner/provisioner-launch' ]
+ - [ bash, /run/root/provisioner-launch/src/sample.sh ]
