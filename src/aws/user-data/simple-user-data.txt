@@ -1,0 +1,6 @@
+#cloud-config
+packages:
+ - git
+runcmd:
+ - [ git, clone, 'https://github.com/timtiemens/provisioner-launch.git' ]
+ - [ bash, 'provisioner-launch/src/sample.sh' ]
