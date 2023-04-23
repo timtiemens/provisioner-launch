@@ -1,0 +1,7 @@
+#cloud-config
+packages:
+ - git
+runcmd:
+ - [ mkdir, /run/provisioner ]
+ - [ git, clone, 'https://github.com/timtiemens/provisioner-launch.git', '/run/provisioner/provisioner-launch' ]
+ - [ bash, /run/provisioner/provisioner-launch/src/projects/ml-nst/runml-nst.sh ]
