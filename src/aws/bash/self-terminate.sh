@@ -13,9 +13,13 @@
 
 # ISSUE: IMDSv2 requires a TOKEN to talk to metadata endpoint
 
-echo Attempting to get TOKEN from metadata
+echo Self-Terminate - attempting to get TOKEN from metadata
 
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
+#
+# Sometimes that "curl" command will fail and crash this whole script.
+# To be safe - check the variable as well:
+#
 if [  "x$TOKEN" != "x" ]
 then
     # ISSUE: region not always set
