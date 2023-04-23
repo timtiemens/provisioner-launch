@@ -20,25 +20,8 @@ PROJECT_DIR=$SCRIPT_DIR/../../..
 bash $PROJECT_DIR/src/helpers/project-chown.sh
 
 
-#
-# put your project-specific code here
-#
-#   1 - record stuff  TBD
-## script
+# run the project-specific code in the "-normal" script
+sudo -u $(src/helpers/get-normal-user.sh) --login  bash $PROJECT_DIR/src/projects/ml-nst/runml-nst-normal.sh $PROJECT_DIR 
 
-#   2 - get the project code
-git clone https://github.com/timtiemens/ml-style-transfer.git $PROJECT_DIR/ml-style-transfer
-#   3 - run the project code
-#     Note the "$LOCAL_TEST_ARGS", which will be "" on AWS instances
-#          but can be set to $ EXPORT LOCAL_TEST_ARGS="--epochs 10"
-echo CD to $PROJECT_DIR/ml-style-transfer
-echo LOCAL_TEST_ARGS is $LOCAL_TEST_ARGS
-cd $PROJECT_DIR/ml-style-transfer
-python  nst-standalone.py $LOCAL_TEST_ARGS
-#   4 - upload outputs to s3
-ls -ld outputs
-ls -l outputs
-$PROJECT_DIR/src/aws/bash/upload-dir-to-unique-s3.sh outputs
+# note: this project (ml-nst) finishes with a "self-terminate.sh"
 
-#   5 - self-terminate the instance
-$PROJECT_DIR/src/aws/bash/self-terminate.sh

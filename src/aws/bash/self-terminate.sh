@@ -11,13 +11,17 @@
 #                 $ aws ec2 describe-instances
 #
 
-# NOTE: IMDSv2 requires a TOKEN to talk to metadata endpoint
+# ISSUE: IMDSv2 requires a TOKEN to talk to metadata endpoint
 
 echo Attempting to get TOKEN from metadata
 
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
 if [  "x$TOKEN" != "x" ]
 then
+    # ISSUE: region not always set
+    aws configure set region `curl --silent http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region`
+
+
     INSTANCE_ID=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/instance-id` 
 
     echo Attempting terminate-instances on $INSTANCE_ID
