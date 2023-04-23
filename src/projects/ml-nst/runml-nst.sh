@@ -23,8 +23,9 @@ bash $PROJECT_DIR/src/helpers/project-chown.sh
 #
 # put your project-specific code here
 #
-#   1 - record stuff
-script
+#   1 - record stuff  TBD
+## script
+
 #   2 - get the project code
 git clone https://github.com/timtiemens/ml-style-transfer.git $PROJECT_DIR/ml-style-transfer
 #   3 - run the project code
