@@ -23,5 +23,5 @@ bash $PROJECT_DIR/src/helpers/project-chown.sh
 # run the project-specific code in the "-normal" script
 sudo -u $(src/helpers/get-normal-user.sh) --login  bash $PROJECT_DIR/src/projects/ml-nst/runml-nst-normal.sh $PROJECT_DIR 
 
-# note: this project (ml-nst) finishes with a "self-terminate.sh"
+# note: that script (runml-nst-normal) finishes with a "self-terminate.sh"
 
