@@ -40,3 +40,5 @@ ls -ld outputs
 ls -l outputs
 $PROJECT_DIR/src/aws/bash/upload-dir-to-unique-s3.sh outputs
 
+#   5 - self-terminate the instance
+$PROJECT_DIR/src/aws/bash/self-terminate.sh
