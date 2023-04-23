@@ -29,7 +29,10 @@ bash $PROJECT_DIR/src/helpers/project-chown.sh
 #   2 - get the project code
 git clone https://github.com/timtiemens/ml-style-transfer.git $PROJECT_DIR/ml-style-transfer
 #   3 - run the project code
-python  $PROJECT_DIR/ml-style-transfer/nst-standalone.py
+cd $PROJECT_DIR/ml-style-stransfer
+ls
+python  nst-standalone.py
 #   4 - upload outputs to s3
-$PROJECT_DIR/src/aws/bash/upload-dir-to-unique-s3.sh $PROJECT_DIR/ml-style-transfer/outputs
+ls -ld outputs
+$PROJECT_DIR/src/aws/bash/upload-dir-to-unique-s3.sh outputs
 
