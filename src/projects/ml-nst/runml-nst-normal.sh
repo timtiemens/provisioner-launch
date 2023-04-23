@@ -41,6 +41,9 @@ cd $PROJECT_DIR/ml-style-transfer
 #         in the PATH...
 #  MORE ISSUE:  "aws" is not in the path either
 #  Being able to just call "python" is why this is in its own script file:
+
+# TEMPORARY: reduce epochs for AWS
+export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
 python  nst-standalone.py $LOCAL_TEST_ARGS
 
 
