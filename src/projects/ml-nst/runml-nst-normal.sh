@@ -31,7 +31,7 @@ git clone https://github.com/timtiemens/ml-style-transfer.git $PROJECT_DIR/ml-st
 #   3 - run the project code
 #     Note the "$LOCAL_TEST_ARGS", which will be "" on AWS instances
 #          but can be set using:
-#          $ export LOCAL_TEST_ARGS="--epochs 11 --save_epoch_every=10"
+#          $ export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
 echo CD to $PROJECT_DIR/ml-style-transfer
 echo LOCAL_TEST_ARGS is $LOCAL_TEST_ARGS
 cd $PROJECT_DIR/ml-style-transfer
