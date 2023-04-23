@@ -33,17 +33,18 @@ git clone https://github.com/timtiemens/ml-style-transfer.git $PROJECT_DIR/ml-st
 #          but can be set using:
 #          $ export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
 echo CD to $PROJECT_DIR/ml-style-transfer
-echo LOCAL_TEST_ARGS is $LOCAL_TEST_ARGS
 cd $PROJECT_DIR/ml-style-transfer
 # sudo -u $(src/helpers/get-normal-user.sh) bash src/projects/ml-nst/runml-nst.sh 
 
 #  ISSUE: when cloud-init runs, it runs as root, and "python" is not
 #         in the PATH...
-#  MORE ISSUE:  "aws" is not in the path either
+#  ISSUE: and "aws" is not in the path either
 #  Being able to just call "python" is why this is in its own script file:
 
 # TEMPORARY: reduce epochs for AWS
-export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
+# export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
+
+echo LOCAL_TEST_ARGS is $LOCAL_TEST_ARGS
 python  nst-standalone.py $LOCAL_TEST_ARGS
 
 
