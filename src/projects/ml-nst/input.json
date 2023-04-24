@@ -1,6 +1,6 @@
- {
+{
      "epochs": 11,
-     "content_image_filename" : 'images/monet.jpg',
-     "style_image_filename"   : 'images/sandstone.jpg'
+     "content_image_filename" : "images/monet.jpg",
+     "style_image_filename"   : "images/sandstone.jpg"
 }
 
