@@ -54,7 +54,7 @@ cd $PROJECT_DIR/ml-style-transfer
 FILENAME_INPUT_JSON=${LOCAL_TEST_FILENAME_INPUT:-input.json}
 PROJECT_INPUT_JSON=$PROJECT_DIR/src/projects/ml-nst/${FILENAME_INPUT_JSON}
 
-echo input.json is $PROJECT_INPUT_JSON
+echo INPUT_JSON      is $PROJECT_INPUT_JSON
 echo LOCAL_TEST_ARGS is $LOCAL_TEST_ARGS
 python  nst-standalone.py --inputJson $PROJECT_INPUT_JSON  $LOCAL_TEST_ARGS
 
