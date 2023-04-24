@@ -44,8 +44,11 @@ cd $PROJECT_DIR/ml-style-transfer
 # TEMPORARY: reduce epochs for AWS
 # export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
 
+PROJECT_INPUT_JSON=$PROJECT_DIR/src/projects/ml-nst/input.json  $LOCAL_TEST_ARGS
+
+echo input.json is $PROJECT_INPUT_JSON
 echo LOCAL_TEST_ARGS is $LOCAL_TEST_ARGS
-python  nst-standalone.py $LOCAL_TEST_ARGS
+python  nst-standalone.py --inputJson $PROJECT_INPUT_JSON
 
 
 #   4 - upload outputs to s3
