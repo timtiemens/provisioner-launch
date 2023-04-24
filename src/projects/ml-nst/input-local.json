@@ -1,0 +1,7 @@
+{
+    "epochs": 11,
+    "save_epoch_every", 10,
+    "content_image_filename" : "images/monet.jpg",
+    "style_image_filename"   : "images/sandstone.jpg"
+}
+

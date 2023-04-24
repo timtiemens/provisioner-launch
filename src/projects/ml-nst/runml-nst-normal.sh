@@ -32,6 +32,9 @@ git clone https://github.com/timtiemens/ml-style-transfer.git $PROJECT_DIR/ml-st
 #     Note the "$LOCAL_TEST_ARGS", which will be "" on AWS instances
 #          but can be set using:
 #          $ export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
+#     Note the name 'input.json' can be changed for a local run with
+#          $ export LOCAL_TEST_FILENAME_INPUT=input-local.json
+#
 echo CD to $PROJECT_DIR/ml-style-transfer
 cd $PROJECT_DIR/ml-style-transfer
 # sudo -u $(src/helpers/get-normal-user.sh) bash src/projects/ml-nst/runml-nst.sh 
@@ -44,11 +47,16 @@ cd $PROJECT_DIR/ml-style-transfer
 # TEMPORARY: reduce epochs for AWS
 # export LOCAL_TEST_ARGS="--epochs 11 --saveEveryEpoch 10"
 
-PROJECT_INPUT_JSON=$PROJECT_DIR/src/projects/ml-nst/input.json  $LOCAL_TEST_ARGS
+# DESIGN DECISION: why not allow entire path to be overriden here?
+#        Answer: this script is for automation, and any testing should
+#                replicate the automation environment as closely as possible,
+#                and that means the .json file should be in git.
+FILENAME_INPUT_JSON=${LOCAL_TEST_FILENAME_INPUT:-input.json}
+PROJECT_INPUT_JSON=$PROJECT_DIR/src/projects/ml-nst/${FILENAME_INPUT_JSON}
 
 echo input.json is $PROJECT_INPUT_JSON
 echo LOCAL_TEST_ARGS is $LOCAL_TEST_ARGS
-python  nst-standalone.py --inputJson $PROJECT_INPUT_JSON
+python  nst-standalone.py --inputJson $PROJECT_INPUT_JSON  $LOCAL_TEST_ARGS
 
 
 #   4 - upload outputs to s3
